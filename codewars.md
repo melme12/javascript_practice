@@ -25,4 +25,4 @@
 
 ## Solutions
 
-### <a name="#function-multiply"></a> 1. Function 3 - multiplying two numbers
+### <div id="function-multiply" />1. Function 3 - multiplying two numbers
