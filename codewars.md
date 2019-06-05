@@ -24,6 +24,7 @@
 1. [Is this my tail?](#tail)
 1. [Removing Elements](#removing-elements)
 1. [Keep Hydrated!](#hydrated)
+1. [Sum Arrays](#sum-arrays)
 
 ## Solutions
 
@@ -378,7 +379,9 @@ function hero(bullets, dragons){
 **Details:**
 
 Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+
 If the tail is right return true, else return false.
+
 The arguments will always be strings, and normal letters.
 
 **Solution:**
@@ -412,8 +415,11 @@ function removeEveryOther(arr){
 **Details:**
 
 Nathan loves cycling.
+
 Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
 You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
 For example:
 time = 3 ----> litres = 1
 time = 6.7---> litres = 3
@@ -424,5 +430,24 @@ time = 11.8--> litres = 5
 function litres(time) {
   let litre = time * 0.5;
   return Math.floor(litre);
+}
+```
+
+### <div id="sum-arrays" />23. Sum Arrays
+
+**Details:**
+
+Write a method `sum` (`sum_array` in python, `SumArray` in C#) that takes an array of numbers and returns the sum of the numbers. These may be integers or decimals for Ruby and any instance of Num for Haskell. The numbers can also be negative. If the array does not contain any numbers then you should return 0.
+
+Assumptions
+- You can assume that you are only given numbers.
+- You cannot assume the size of the array.
+- You can assume that you do get an array and if the array is empty, return 0.
+
+**Solution:**
+```javascript
+function sum (numbers) {
+    "use strict";
+    return numbers.reduce((x, i) => x + i, 0);
 }
 ```
