@@ -407,7 +407,7 @@ function removeEveryOther(arr){
 }
 ```
 
-### <div id="removing-elements" />22. Keep Hydrated!
+### <div id="hydrated" />22. Keep Hydrated!
 
 **Details:**
 
