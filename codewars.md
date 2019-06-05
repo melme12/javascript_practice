@@ -23,6 +23,7 @@
 1. [Is he gonna survive?](#survive)
 1. [Is this my tail?](#tail)
 1. [Removing Elements](#removing-elements)
+1. [Keep Hydrated!](#hydrated)
 
 ## Solutions
 
@@ -190,25 +191,208 @@ function boolToWord(bool){
 
 ### <div id="count-positives-sum-negatives" />10. Count of positives / sum of negatives
 
+**Details:**
+
+Given an array of integers.
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+If the input array is empty or null, return an empty array.
+
+**Solution:**
+```javascript
+function countPositivesSumNegatives(input) {
+    if (input === null || input.length === 0) {
+        return [];
+    }
+    var finalArray = [0, 0];
+    for (var i = 0; i < input.length; i++) {
+      if (input[i] <= 0) {
+        finalArray[1] += input[i];
+      } else {
+        finalArray[0] += 1;
+        }
+    }
+    return finalArray;
+}
+```
+
 ### <div id="hello-name-or-world" />11. Hello, Name or World!
+
+**Details:**
+
+Define a method `hello` that `returns` "Hello, Name!" to a given `name`, or says Hello, World! if name is not given (or passed as an empty String).
+Assuming that `name` is a `String` and it checks for user typos to return a name with a first capital letter (Xxxx).
+
+**Solution:**
+```javascript
+function hello(name) {
+if (name === "" || name == undefined) {
+  return "Hello, World!";
+  } else {
+  return 'Hello, ' + name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() + '!';
+  }
+}
+```
 
 ### <div id="grasshopper" />12. Grasshopper - Personalized Message
 
+**Details:**
+
+Create a function that gives a personalized greeting. This function takes two parameters: `name` and `owner`.
+Use conditionals to return the proper message:
+======= case | return --- | --- name equals owner | 'Hello boss' otherwise | 'Hello guest'
+
+**Solution:**
+```javascript
+function greet (name, owner) {  
+  return (name === owner) ? "Hello boss" : "Hello guest";
+}
+```
+
 ### <div id="basic-math-operations" />13. Basic Mathematical Operations
+
+**Details:**
+
+Your task is to create a function that does four basic mathematical operations.
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+**Solution:**
+```javascript
+function basicOp(operation, value1, value2) {
+  switch(operation) {
+    case "+":
+    return (value1 + value2);
+    break;
+    case "-":
+    return (value1 - value2);
+    break;
+    case "*":
+    return (value1 * value2);
+    break;
+    case "/":
+    return (value1 / value2);
+    break;
+    }
+}
+```
 
 ### <div id="reversed-seq" />14. Reversed sequence
 
+**Details:**
+
+Get the number n `(n>0)` to return the reversed sequence from n to 1.
+Example : n=5 >> [5,4,3,2,1]
+
+**Solution:**
+```javascript
+const reverseSeq = n => {
+  var result = [];
+  for (var i = n; i > 0; i--) {
+    result.push(i);
+    }
+  return result;
+}
+```
+
 ### <div id="ascii-value" />15. get ascii value of character
+
+**Details:**
+
+get ascii value of character
+write a function getASCII which inputs a character and returns the corresponding ascii value for that character. Example : getASCII('A') => 65
+
+**Solution:**
+```javascript
+function getASCII(c){
+  return c.charCodeAt(0);
+}
+```
 
 ### <div id="allstar-code-18" />16. All Star Code Challenge #18
 
+**Details:**
+
+This Kata is intended as a small challenge for my students
+All Star Code Challenge #18
+Create a function called that accepts 2 string arguments and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+If no occurrences can be found, a count of 0 should be returned.
+
+**Solution:**
+```javascript
+function strCount(str, letter){  
+  return (str.split(letter).length - 1);
+}
+```
+
 ### <div id="bugs-dogs" />17. 101 Dalmatians - squash the bugs, not the dogs!
+
+**Details:**
+
+Your friend has been out shopping for puppies (what a time to be alive!)... He arrives back with multiple dogs, and you simply do not know how to respond!
+By repairing the function provided, you will find out exactly how you should respond, depending on the number of dogs he has.
+The number of dogs will always be a number and there will always be at least 1 dog.
+
+**Solution:**
+```javascript
+function howManyDalmatians(number) {
+  var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];  
+  var respond = number <= 10 ? dogs[0] : number <= 50 ? dogs[1] : number === 101 ? dogs[3] : dogs[2];  
+  return respond;  
+}
+```
 
 ### <div id="beginner-lost-map" />18. Beginner - Lost Without a Map
 
+**Details:**
+
+Given an array of integers, return a new array with each value doubled.
+For example:
+`[1, 2, 3] --> [2, 4, 6]`
+For the beginner, try to use the `map` method - it comes in very handy quite a lot so is a good one to know.
+
+**Solution:**
+
+```javascript
+function maps(x){
+  return x.map((item) => item * 2);
+}
+```
+
 ### <div id="survive" />19. Is he gonna survive?
 
+**Details:**
+
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+Return True if yes, False otherwise :)
+
+**Solution:**
+
+```javascript
+function hero(bullets, dragons){
+  return bullets >= dragons * 2
+}
+```
+
 ### <div id="tail" />20. Is this my tail?
+
+**Details:**
+
+Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+If the tail is right return true, else return false.
+The arguments will always be strings, and normal letters.
+
+**Solution:**
+
+```javascript
+function correctTail(body, tail) {
+  var sub = body.substr(body.length - tail.length);
+  if (sub === tail) {
+    return true;
+    } else {
+      return false;
+  }
+}
+```
 
 ### <div id="removing-elements" />21. Removing Elements
 
@@ -220,5 +404,25 @@ Take an array and remove every second element out of that array. Always keep the
 ```javascript
 function removeEveryOther(arr){
   return arr.filter((x, i) => i % 2 === 0);
+}
+```
+
+### <div id="removing-elements" />22. Keep Hydrated!
+
+**Details:**
+
+Nathan loves cycling.
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+For example:
+time = 3 ----> litres = 1
+time = 6.7---> litres = 3
+time = 11.8--> litres = 5
+
+**Solution:**
+```javascript
+function litres(time) {
+  let litre = time * 0.5;
+  return Math.floor(litre);
 }
 ```
