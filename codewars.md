@@ -22,6 +22,7 @@
 1. [Beginner - Lost Without a Map](#beginner-lost-map)
 1. [Is he gonna survive?](#survive)
 1. [Is this my tail?](#tail)
+1. [Removing Elements](#removing-elements)
 
 ## Solutions
 
@@ -208,3 +209,16 @@ function boolToWord(bool){
 ### <div id="survive" />19. Is he gonna survive?
 
 ### <div id="tail" />20. Is this my tail?
+
+### <div id="removing-elements" />21. Removing Elements
+
+**Details:**
+
+Take an array and remove every second element out of that array. Always keep the first element and start removing with the next element.
+
+**Solution:**
+```javascript
+function removeEveryOther(arr){
+  return arr.filter((x, i) => i % 2 === 0);
+}
+```
