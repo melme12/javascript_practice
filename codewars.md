@@ -26,6 +26,7 @@
 1. [Keep Hydrated!](#hydrated)
 1. [Sum Arrays](#sum-arrays)
 1. [Find out whether the shape is a cube](#shape-cube)
+1. [Square(n) Sum](#square-n-sum)
 
 ## Solutions
 
@@ -474,5 +475,26 @@ Note: the sides must be integers
 ```javascript
 var cubeChecker = function(volume, side){
   return volume == side**3 && volume > 0;
+}
+```
+
+### <div id="#square-n-sum" />25. Square(n) Sum
+
+**Details:**
+
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+For example, for `[1, 2, 2]` it should return `9` because `1^2 + 2^2 + 2^2 = 9`.
+
+
+
+**Solution:**
+```javascript
+function squareSum(numbers) {
+  var sumTotal = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sumTotal += numbers[i] ** 2; 
+  }
+  return sumTotal;
 }
 ```
