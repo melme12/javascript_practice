@@ -26,7 +26,8 @@
 1. [Keep Hydrated!](#hydrated)
 1. [Sum Arrays](#sum-arrays)
 1. [Find out whether the shape is a cube](#shape-cube)
-1. [Square(n) Sum](#square-n-sum)
+1. [Square(n) Sum](#square-n-sums)
+1. [Convert a String to a Number!](#string-number)
 
 ## Solutions
 
@@ -470,7 +471,6 @@ Return `false` for invalid numbers too (e.g volume or side is less than or equal
 
 Note: the sides must be integers
 
-
 **Solution:**
 ```javascript
 var cubeChecker = function(volume, side){
@@ -486,8 +486,6 @@ Complete the square sum function so that it squares each number passed into it a
 
 For example, for `[1, 2, 2]` it should return `9` because `1^2 + 2^2 + 2^2 = 9`.
 
-
-
 **Solution:**
 ```javascript
 function squareSum(numbers) {
@@ -496,5 +494,20 @@ function squareSum(numbers) {
     sumTotal += numbers[i] ** 2; 
   }
   return sumTotal;
+}
+```
+
+### <div id="#string-number" />26. Convert a String to a Number!
+
+**Details:**
+
+We need a function that can transform a string into a number. What ways of achieving this do you know?
+
+Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+
+**Solution:**
+```javascript
+var stringToNumber = function(str){
+  return parseInt (str, 10);
 }
 ```
