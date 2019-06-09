@@ -56,6 +56,28 @@ Only integers greater than or equal to zero will be supplied to the function.
 
 Remember to use Read-Search-Ask if you get stuck. Write your own code.
 
+**My Solution:**
+```javascript
+function factorialize(num) {
+  let a = 1;
+  for (let i = 1; i <= num; i++) {
+    a = a * i;
+  }
+  return a;
+}
+
+factorialize(5);
+```
+
+### 4. Find the Longest Word in a String
+
+Return the length of the longest word in the provided sentence.
+
+Your response should be a number.
+
+Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+**My Solution:**
 ```javascript
 
 ```
