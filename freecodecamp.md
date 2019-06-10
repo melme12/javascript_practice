@@ -171,3 +171,41 @@ function truncateString(str, num) {
 
 truncateString("A-tisket a-tasket A green and yellow basket", 8);
 ```
+
+**Notes:** Forgot to trun str into str.length (line 5) and spent nearly an hour to search for the mistake. 🤦
+
+### 9. Finders Keepers
+
+Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+
+**My Solution:**
+
+```javascript
+function findElement(arr, func) {
+  return arr.find(func);
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+```
+
+### 10. Boo who
+
+Check if a value is classified as a boolean primitive. Return true or false.
+
+Boolean primitives are true and false.
+
+**My Solution:**
+```javascript
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  if (typeof bool === 'boolean') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+booWho(null);
+```
+
+**Notes:** I still have to work through the tasks word by word, which is why my solutions are often quite long. By now I know it would have been  enough to use `function booWho(bool) {return typeof bool === 'boolean';}`: If `typeof bool` is equal to `boolean` (the output of `typeof`in case of booleans) it will return true.
