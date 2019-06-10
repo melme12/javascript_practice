@@ -130,3 +130,44 @@ function confirmEnding(str, target) {
 
 confirmEnding("Bastian", "n");
 ```
+
+### 7. Repeat a String Repeat a String
+
+Repeat a given string `str` (first argument) for `num` times (second argument). Return an empty string if `num` is not a positive number.
+
+**My Solution:**
+
+```javascript
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+  var multiStr = "";
+  while (num > 0) {
+    multiStr += str;
+    num--;
+  }
+  return multiStr;
+}
+
+repeatStringNumTimes("abc", 3);
+```
+
+### 8. Truncate a String
+
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a `...` ending.
+
+**My Solution:*
+
+```javascript
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  let trunStr = str.substring(0, num);
+  let newStr = "";
+  if (str.length > num) {
+    return trunStr + "...";
+  } else {
+    return trunStr;
+  }
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+```
