@@ -208,4 +208,26 @@ function booWho(bool) {
 booWho(null);
 ```
 
-**Notes:** I still have to work through the tasks word by word, which is why my solutions are often quite long. By now I know it would have been  enough to use `function booWho(bool) {return typeof bool === 'boolean';}`: If `typeof bool` is equal to `boolean` (the output of `typeof`in case of booleans) it will return true.
+**Notes:** I still have to work through the tasks word by word, which is why my solutions are often quite long. By now I know it would have been  enough to use `function booWho(bool) {return typeof bool === 'boolean';}`: If `typeof bool` is equal to `'boolean'` (the output of `typeof`in case of booleans) it will return true.
+
+### 11. Title Case a Sentence
+
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+**My Solution:**
+
+```javascript
+function titleCase(str) {
+  str = str.toLowerCase().split(' ');
+  for (let i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+  }
+  return str.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+```
+
+**Notes:** This was a hard one for me.
