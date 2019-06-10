@@ -230,4 +230,4 @@ function titleCase(str) {
 titleCase("I'm a little tea pot");
 ```
 
-**Notes:** This was a hard one for me.
+
