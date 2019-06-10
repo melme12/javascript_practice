@@ -4,9 +4,9 @@
 
 ### 1. Convert Celsius to Fahrenheit
 
-The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
+The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times `9/5`, plus `32`.
 
-You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.
+You are given a variable `celsius` representing a temperature in Celsius. Use the variable `fahrenheit` already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.
 
 Don't worry too much about the function and return statements as they will be covered in future challenges. For now, only use operators that you have already learned.
 
@@ -28,8 +28,6 @@ You may need to turn the string into an array before you can reverse it.
 
 Your result must be a string.
 
-Remember to use Read-Search-Ask if you get stuck. Write your own code.
-
 **My Solution:**
 ```javascript
 function reverseString(str) {
@@ -46,15 +44,13 @@ reverseString("hello");
 
 Return the factorial of the provided integer.
 
-If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
+If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to `n`.
 
 Factorials are often represented with the shorthand notation n!
 
-For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
+For example: `5! = 1 * 2 * 3 * 4 * 5 = 120`
 
 Only integers greater than or equal to zero will be supplied to the function.
-
-Remember to use Read-Search-Ask if you get stuck. Write your own code.
 
 **My Solution:**
 ```javascript
@@ -75,8 +71,6 @@ Return the length of the longest word in the provided sentence.
 
 Your response should be a number.
 
-Remember to use Read-Search-Ask if you get stuck. Write your own code.
-
 **My Solution:**
 ```javascript
 function findLongestWordLength(str) {
@@ -91,4 +85,26 @@ function findLongestWordLength(str) {
 }
 
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
+```
+
+### 5. Return Largest Numbers in Arrays
+
+Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+
+Remember, you can iterate through an array with a simple for loop, and access each member with array syntax `arr[i]`.
+
+**My Solution:**
+
+```javascript
+function largestOfFour(arr) {
+  // You can do this!
+  var newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].sort((a, b) => b - a);
+    newArr[i] = arr[i][0];
+  }
+  return newArr;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
 ```
