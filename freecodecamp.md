@@ -79,5 +79,16 @@ Remember to use Read-Search-Ask if you get stuck. Write your own code.
 
 **My Solution:**
 ```javascript
+function findLongestWordLength(str) {
+  var strArr = str.split(' ');
+  var wordLen = 0;
+  for(let i = 0; i < strArr.length; i++){
+    if(strArr[i].length > wordLen){
+	    wordLen = strArr[i].length;
+     }
+  }
+  return wordLen;
+}
 
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
 ```
