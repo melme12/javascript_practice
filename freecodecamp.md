@@ -230,7 +230,7 @@ function titleCase(str) {
 titleCase("I'm a little tea pot");
 ```
 
-### 11. Slice and Splice
+### 12. Slice and Splice
 
 You are given two arrays and an index.
 
@@ -256,7 +256,7 @@ function frankenSplice(arr1, arr2, n) {
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
 ```
 
-### 12. Falsy Bouncer
+### 13. Falsy Bouncer
 
 Remove all falsy values from an array.
 
@@ -276,3 +276,54 @@ bouncer([7, "ate", "", false, 9]);
 ```
 
 **Notes:** MDN says: "The filter() method creates a new array with all elements that pass the test implemented by the provided function." So it 'filters' the array and only returns the values that pass the test. `Boolean` returns `false` when passed any falsy values.
+
+### 14. Where do I Belong 
+
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+For example, `getIndexToIns([1,2,3,4], 1.5)` should return `1` because it is greater than `1` (index 0), but less than `2` (index 1).
+
+Likewise, `getIndexToIns([20,3,5], 19)` should return `2` because once the array has been sorted it will look like `[3,5,20]` and `19` is less than `20` (index 2) and greater than `5` (index 1).
+
+```javascript
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  let newArr = arr.push(num); // 1. push num to arr
+  let sortThisArr = arr.sort((a, b) => a - b); // 2. sort array by numbers
+  return sortThisArr.indexOf(num);
+}
+
+getIndexToIns([40, 60], 50);
+```
+
+**Notes:** I wrote a plan with this one, which didn't quite work out. Then I figured out the steps were okay, but I had to order it differently. Remember this for the next ones! Sometimes it is the order of your plan which has to be overthought, not the plan itself...
+
+### 15. Mutations
+
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, `["hello", "Hello"]`, should return true because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments `["hello", "hey"]` should return false because the string "hello" does not contain a "y".
+
+Lastly, `["Alien", "line"]`, should return true because all of the letters in "line" are present in "Alien".
+
+```javascript
+function mutation(arr) {
+  
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].toLowerCase();
+    }
+
+  let newArr = arr.splice(1); // turn the array into two arrays
+
+  let secondElement = newArr[0].split("");
+  let firstElement = arr[0].split("");
+  
+  return secondElement.every(x => firstElement.includes(x));
+}
+
+mutation(["hello", "hey"]);
+```
+
+**Notes:**  1. turn everything to lowercase; 2. split arr into two arrays; 3. compare if every element of secondElement is included in firstElement (every() returns a boolean).
