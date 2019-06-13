@@ -155,7 +155,7 @@ repeatStringNumTimes("abc", 3);
 
 Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a `...` ending.
 
-**My Solution:*
+**My Solution:**
 
 ```javascript
 function truncateString(str, num) {
@@ -229,5 +229,31 @@ function titleCase(str) {
 
 titleCase("I'm a little tea pot");
 ```
+
+### 11. Slice and Splice
+
+You are given two arrays and an index.
+
+Use the array methods `slice` and `splice` to copy each element of the first array into the second array, in order.
+
+Begin inserting elements at index `n` of the second array.
+
+Return the resulting array. The input arrays should remain the same after the function runs.
+
+**My Solution:**
+
+```javascript
+function frankenSplice(arr1, arr2, n) {
+  // It's alive. It's alive!
+  let newArr = arr2.slice();
+  for (let i = 0; i < arr1.length; i++) {
+    newArr.splice(n, 0, arr1[i]);
+    n++;
+  }
+  return newArr;
+}
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+```
+
 
 
