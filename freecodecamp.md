@@ -252,8 +252,27 @@ function frankenSplice(arr1, arr2, n) {
   }
   return newArr;
 }
+
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
 ```
 
+### 12. Falsy Bouncer
 
+Remove all falsy values from an array.
 
+Falsy values in JavaScript are `false`, `null`, `0`, `""`, `undefined`, and `NaN`.
+
+Hint: Try converting each value to a Boolean.
+
+**My Solution:**
+
+```javascript
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
+
+**Notes:** MDN says: "The filter() method creates a new array with all elements that pass the test implemented by the provided function." So it 'filters' the array and only returns the values that pass the test. `Boolean` returns `false` when passed any falsy values.
