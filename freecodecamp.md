@@ -310,20 +310,32 @@ Lastly, `["Alien", "line"]`, should return true because all of the letters in "l
 
 ```javascript
 function mutation(arr) {
-  
   for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i].toLowerCase();
     }
-
-  let newArr = arr.splice(1); // turn the array into two arrays
-
+  let newArr = arr.splice(1);
   let secondElement = newArr[0].split("");
   let firstElement = arr[0].split("");
-  
   return secondElement.every(x => firstElement.includes(x));
 }
-
 mutation(["hello", "hey"]);
 ```
 
 **Notes:**  1. turn everything to lowercase; 2. split arr into two arrays; 3. compare if every element of secondElement is included in firstElement (every() returns a boolean).
+
+### 16. Chunky Monkey
+
+Write a function that splits an array (first argument) into groups the length of `size` (second argument) and returns them as a two-dimensional array.
+
+```javascript
+function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  var newArr = [];
+  for (let i = 0; i < arr.length; i += size) {
+    newArr.push(arr.slice(i, i + size));
+  }
+  return newArr;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+```
