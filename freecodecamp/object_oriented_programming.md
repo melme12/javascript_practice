@@ -25,6 +25,7 @@ let dog = {
   numLegs: 4
 };
 // Add your code below this line
+
 console.log(dog.name);
 console.log(dog.numLegs);
 ```
@@ -86,6 +87,7 @@ function Dog() {
   this.numLegs = 4;
 }
 // Add your code below this line
+
 let hound = new Dog();
 ```
 
@@ -111,5 +113,80 @@ Create a new instance of the `House` constructor, calling it `myHouse` and passi
 
 **My Solution:**
 ```javascript
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
 
+// Add your code below this line
+
+let myHouse = new House(3);
+myHouse instanceof House;
+```
+
+### 9. Understand Own Properties
+
+Add the `own` properties of `canary` to the array `ownProps`.
+
+**My Solution:**
+```javascript
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Add your code below this line
+
+for (let property in canary) {
+  if (canary.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+```
+
+### 10. Use Prototype Properties to Reduce Duplicate Code
+
+Add a `numLegs` property to the `prototype` of `Dog`.
+
+**My Solution:**
+```javascript
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+// Add your code above this line
+let beagle = new Dog("Snoopy");
+```
+
+### 11. Iterate Over All Properties
+
+Add all of the `own` properties of `beagle` to the array `ownProps`. Add all of the `prototype` properties of `Dog` to the array `prototypeProps`.
+
+**My Solution:**
+```javascript
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+
+let ownProps = [];
+let prototypeProps = [];
+
+// Add your code below this line 
+
+for (let property in beagle) {
+  if (beagle.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+console.log(ownProps);
+console.log(prototypeProps);
 ```
