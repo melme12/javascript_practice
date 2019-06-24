@@ -39,3 +39,101 @@ function checkScope() {
   return i;
 }
 ```
+
+### 3. Declare a Read-Only Variable with the const Keyword
+
+Change the code so that all variables are declared using `let` or `const`. Use `let` when you want the variable to change, and `const` when you want the variable to remain constant. Also, rename variables declared with `const` to conform to common practices, meaning constants should be in all caps.
+
+**My Solution:**
+```javascript
+function printManyTimes(str) {
+  "use strict";
+
+  // change code below this line
+
+  const SENTENCE = str + " is cool!";
+  for (let i = 0; i < str.length; i+=2) {
+    console.log(SENTENCE);
+  }
+
+  // change code above this line
+
+}
+printManyTimes("freeCodeCamp");
+```
+
+### 4. Mutate an Array Declared with const
+
+An array is declared as `const s = [5, 7, 2]`. Change the array to `[2, 5, 7]` using various element assignment.
+
+**My Solution:**
+```javascript
+const s = [5, 7, 2];
+function editInPlace() {
+  "use strict";
+  // change code below this line
+
+  s[0] = 2;
+  s[1] = 5;
+  s[2] = 7;
+
+  // change code above this line
+}
+editInPlace();
+```
+
+### 5. Prevent Object Mutation
+
+In this challenge you are going to use `Object.freeze` to prevent mathematical constants from changing. You need to freeze the `MATH_CONSTANTS` object so that no one is able alter the value of `PI`, add, or delete properties .
+
+**My Solution:**
+```javascript
+function freezeObj() {
+  "use strict";
+  const MATH_CONSTANTS = {
+    PI: 3.14
+  };
+  // change code below this line
+  
+  Object.freeze(MATH_CONSTANTS);
+
+  // change code above this line
+  try {
+    MATH_CONSTANTS.PI = 99;
+  } catch( ex ) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+```
+
+### 6. Use Arrow Functions to Write Concise Anonymous Functions
+
+Rewrite the function assigned to the variable `magic` which returns a new `Date()` to use arrow function syntax. Also make sure nothing is defined using the keyword `var`.
+
+**My Solution:**
+```javascript
+const magic = () => new Date();
+```
+
+### 7. Write Arrow Functions with Parameters
+
+Rewrite the `myConcat` function which appends contents of `arr2` to `arr1` so that the function uses arrow function syntax.
+
+**My Solution:**
+```javascript
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+// test your code
+console.log(myConcat([1, 2], [3, 4, 5]));
+```
+
+### 8. Write Higher Order Arrow Functions
+
+Use arrow function syntax to compute the square of only the positive integers (decimal numbers are not integers) in the array `realNumberArray` and store the new array in the variable `squaredIntegers`.
+
+**My Solution:**
+```javascript
+
+```
