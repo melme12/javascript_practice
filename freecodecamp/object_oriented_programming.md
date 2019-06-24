@@ -392,5 +392,107 @@ Fix the code so `duck.constructor` and `beagle.constructor` return their respect
 
 **My Solution:**
 ```javascript
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Add your code below this line
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+let beagle = new Dog();
+```
+
+### 21. Add Methods After Inheritance
+
+Add all necessary code so the `Dog` object inherits from `Animal` and the `Dog's prototype` constructor is set to Dog. Then add a `bark()` method to the `Dog` object so that `beagle` can both `eat()` and `bark()`. The `bark()` method should print "Woof!" to the console.
+
+**My Solution:**
+```javascript
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Add your code below this line
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function() {
+    console.log("Woof!");
+}
+
+
+// Add your code above this line
+
+let beagle = new Dog();
+
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
+```
+
+### 22. Override Inherited Methods
+
+Override the `fly()` method for `Penguin` so that it returns "Alas, this is a flightless bird."
+
+**My Solution:**
+```javascript
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Add your code below this line
+Penguin.prototype.fly = function() {
+    return "Alas, this is a flightless bird.";
+}
+// Add your code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+```
+
+### 23. Use a Mixin to Add Common Behavior Between Unrelated Objects
+
+Create a `mixin` named `glideMixin` that defines a method named `glide`. Then use the `glideMixin` to give both `bird` and `boat` the ability to glide.
+
+**My Solution:**
+```javascript
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Add your code below this line
+
+let glideMixin = function(obj) {
+    obj.glide = function() {
+        console.log("Gliiiiiiiiiide");
+    }
+}
+
+glideMixin(bird);
+glideMixin(boat);
+```
+
+### 24. Use Closure to Protect Properties Within an Object from Being Modified Externally
+
+Change how `weight` is declared in the `Bird` function so it is a private variable. Then, create a method `getWeight` that returns the value of `weight`.
+
+**My Solution:**
+```javascript
 
 ```
