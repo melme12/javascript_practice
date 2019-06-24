@@ -135,5 +135,45 @@ Use arrow function syntax to compute the square of only the positive integers (d
 
 **My Solution:**
 ```javascript
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+  "use strict";
+  // change code below this line
+
+  const squaredIntegers = arr.filter((num) => num > 0 && num % parseInt(num) === 0).map((num) => Math.pow(num, 2));
+
+  // change code above this line
+  return squaredIntegers;
+};
+
+// test your code
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+```
+
+**Notes:** Chained function: filter nums from arr that are bigger than 0 and an integer and for every of those num (.map()) use Math.pow(base, exponent).
+
+### 9. Set Default Parameters for Your Functions
+
+Modify the function `increment` by adding default parameters so that it will add 1 to `number` if `value` is not specified.
+
+**My Solution:**
+```javascript
+const increment = (function() {
+  "use strict";
+  return function increment(number, value = 1) {
+    return number + value;
+  };
+})();
+console.log(increment(5, 2)); // returns 7
+console.log(increment(5)); // returns 6
+```
+
+### 10. Use the Rest Operator with Function Parameters
+
+Modify the function `sum` so that it uses the rest operator and it works in the same way with any number of parameters.
+
+**My Solution:**
+```javascript
 
 ```
