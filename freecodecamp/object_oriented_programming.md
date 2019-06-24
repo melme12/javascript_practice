@@ -280,5 +280,117 @@ Modify the code to show the correct prototype chain.
 
 **My Solution:**
 ```javascript
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+Dog.prototype.isPrototypeOf(beagle);  // => true
+
+// Fix the code below so that it evaluates to true
+Object.prototype.isPrototypeOf(Dog.prototype);
+```
+
+### 17. Use Inheritance So You Don't Repeat Yourself
+
+The `eat` method is repeated in both `Cat` and `Bear`. Edit the code in the spirit of `DRY` by moving the `eat` method to the `Animal supertype`.
+
+**My Solution:**
+```javascript
+function Cat(name) {
+  this.name = name; 
+}
+
+Cat.prototype = {
+  constructor: Cat, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Bear(name) {
+  this.name = name; 
+}
+
+Bear.prototype = {
+  constructor: Bear, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+Cat.prototype = {
+  constructor: Cat
+}
+
+Bear.prototype = {
+  constructor: Bear
+}
+```
+
+### 18. Inherit Behaviors from a Supertype
+
+Use `Object.create` to make two instances of `Animal` named `duck` and `beagle`.
+
+**My Solution:**
+```javascript
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+// Add your code below this line
+
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype); // Change this line
+
+duck.eat(); // Should print "nom nom nom"
+beagle.eat(); // Should print "nom nom nom" 
+```
+
+### 19. Set the Child's Prototype to an Instance of the Parent
+
+Modify the code so that instances of `Dog` inherit from `Animal`.
+
+**My Solution:**
+```javascript
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Add your code below this line
+
+Dog.prototype = Object.create(Animal.prototype);
+let beagle = new Dog();
+beagle.eat();  // Should print "nom nom nom"
+```
+
+### 20. Reset an Inherited Constructor Property
+
+Fix the code so `duck.constructor` and `beagle.constructor` return their respective constructors.
+
+**My Solution:**
+```javascript
 
 ```
