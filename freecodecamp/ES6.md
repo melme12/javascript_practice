@@ -317,5 +317,183 @@ Use template literal syntax with backticks to display each entry of the `result`
 
 **My Solution:**
 ```javascript
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+  "use strict";
 
+  // change code below this line
+  const resultDisplayArray = arr.map(fail => `<li class="text-warning">${fail}</li>`);
+  // change code above this line
+  return resultDisplayArray;
+}
+/**
+ * makeList(result.failure) should return:
+ * [ `<li class="text-warning">no-var</li>`,
+ *   `<li class="text-warning">var-on-top</li>`, 
+ *   `<li class="text-warning">linebreak</li>` ]
+ **/
+const resultDisplayArray = makeList(result.failure);
+```
+
+### 18. Write Concise Object Literal Declarations Using Simple Fields
+
+Use simple fields with object literals to create and return a `Person` object.
+
+**My Solution:**
+```javascript
+const createPerson = (name, age, gender) => {
+  "use strict";
+  // change code below this line
+  return { name, age, gender };
+  // change code above this line
+};
+console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object
+```
+
+### 19. Write Concise Declarative Functions with ES6
+
+Refactor the function `setGear` inside the object `bicycle` to use the shorthand syntax described above.
+
+**My Solution:**
+```javascript
+// change code below this line
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+// change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+
+### 20. Use class Syntax to Define a Constructor Function
+
+Use class `keyword` and write a proper constructor to create the `Vegetable` class.
+
+The `Vegetable` lets you create a vegetable object, with a property `name`, to be passed to constructor.
+
+**My Solution:**
+```javascript
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+  
+  class Vegetable {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+  /* Alter code above this line */
+  return Vegetable;
+}
+const Vegetable = makeClass();
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // => should be 'carrot'
+```
+
+### 21. Use getters and setters to Control Access to an Object
+
+Use `class` keyword to create a Thermostat class. The constructor accepts Fahrenheit temperature.
+
+Now create `getter` and `setter` in the class, to obtain the temperature in Celsius scale.
+
+Remember that `C = 5/9 * (F - 32)` and `F = C * 9.0 / 5 + 32`, where F is the value of temperature in Fahrenheit scale, and C is the value of the same temperature in Celsius scale
+
+Note
+
+When you implement this, you would be tracking the temperature inside the class in one scale - either Fahrenheit or Celsius.
+
+This is the power of getter or setter - you are creating an API for another user, who would get the correct result, no matter which one you track.
+
+In other words, you are abstracting implementation details from the consumer.
+
+**My Solution:**
+```javascript
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+
+  class Thermostat {
+    constructor(farenheit) {
+      this.farenheit = farenheit;
+    }
+    //getter
+    get temperature() {
+      return 5 / 9 * (this.fahrenheit - 32);
+    }
+    //setter
+    set temperature(celsius) {
+      this.fahrenheit = ((celsius * 9 / 5) +32);
+    }
+  }
+
+  /* Alter code above this line */
+  return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
+```
+
+### 22. Understand the Differences Between import and require
+
+Add the appropriate `import` statement that will allow the current file to use the `capitalizeString` function. The file where this function lives is called `"string_functions"`, and it is in the same directory as the current file.
+
+**My Solution:**
+```javascript
+"use strict";
+import { capitalizeString } from "string_functions";
+capitalizeString("hello!");
+```
+
+### 23. Use export to Reuse a Code Block
+
+Below are two variables that I want to make available for other files to use. Utilizing the first way I demonstrated export, `export` the two variables.
+
+**My Solution:**
+```javascript
+"use strict";
+export const foo = "bar";
+export const bar = "foo";
+```
+
+### 24. Use * to Import Everything from a File
+
+The code below requires the contents of a file, `"capitalize_strings"`, found in the same directory as it, imported. Add the appropriate `import *` statement to the top of the file, using the object provided.
+
+**My Solution:**
+```javascript
+"use strict";
+import * as foo from "capitalize_strings";
+```
+
+### 25. Create an Export Fallback with export default
+
+The following function should be the fallback value for the module. Please add the necessary code to do so.
+
+**My Solution:**
+```javascript
+"use strict";
+export default function subtract(x,y) {return x - y;}
+```
+
+### 26. Import a Default Export
+
+In the following code, please import the default export, `subtract`, from the file `"math_functions"`, found in the same directory as this file.
+
+**My Solution:**
+```javascript
+"use strict";
+import subtract from "math_functions";
+subtract(7,4);
 ```
