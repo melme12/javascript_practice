@@ -180,5 +180,25 @@ The `watchList` array holds objects with information on several movies. Use `map
 
 **My Solution:**
 ```javascript
+var watchList = [.....]
+
+// Add your code below this line
+
+let rating = watchList.map( (watchListObj) => ({
+  "title":watchListObj["Title"],
+  "rating":watchListObj["imdbRating"]
+  }) );
+  
+// Add your code above this line
+
+console.log(rating); 
+```
+
+### 8. Implement map on a Prototype
+
+Write your own `Array.prototype.myMap()`, which should behave exactly like `Array.prototype.map()`. You may use a `for` loop or the `forEach` method.
+
+**My Solution:**
+```javascript
 
 ```
