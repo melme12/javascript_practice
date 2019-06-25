@@ -138,3 +138,12 @@ function incrementer (arg) {
 var newValue = incrementer(fixedValue); // Should equal 5
 console.log(fixedValue); // Should print 4
 ```
+
+### 6. Refactor Global Variables Out of Functions
+
+Refactor (rewrite) the code so the global array `bookList` is not changed inside either function. The `add` function should add the given `bookName` to the end of an array. The `remove` function should remove the given `bookName` from an array. Both functions should return an array, and any new parameters should be added before the `bookName` one.
+
+**My Solution:**
+```javascript
+
+```
