@@ -200,5 +200,49 @@ Write your own `Array.prototype.myMap()`, which should behave exactly like `Arra
 
 **My Solution:**
 ```javascript
+// the global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback){
+  var newArray = [];
+  // Add your code below this line
+
+  this.forEach(item => newArray.push(callback(item)));
+
+  // Add your code above this line
+  return newArray;
+
+};
+
+var new_s = s.myMap(function(item){
+  return item * 2;
+});
+```
+
+### 9. Use the filter Method to Extract Data from an Array
+
+The variable `watchList` holds an array of objects with information on several movies. Use a combination of `filter` and `map` to return a new array of objects with only `title` and `rating` keys, but where `imdbRating` is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may want to convert them into numbers to perform mathematical operations on them.
+
+**My Solution:**
+```javascript
+var watchList = [.....]
+
+// Add your code below this line
+
+var filteredList = watchList.map(function(x) {
+  return {title: x["Title"], rating: x["imdbRating"]}
+}).filter((x) => x.rating >= 8);
+
+// Add your code above this line
+
+console.log(filteredList); 
+```
+
+### 10. Implement the filter Method on a Prototype
+
+Write your own `Array.prototype.myFilter()`, which should behave exactly like `Array.prototype.filter()`. You may use a for loop or the `Array.prototype.forEach()` method.
+
+**My Solution:**
+```javascript
 
 ```
