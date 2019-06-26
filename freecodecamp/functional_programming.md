@@ -244,5 +244,34 @@ Write your own `Array.prototype.myFilter()`, which should behave exactly like `A
 
 **My Solution:**
 ```javascript
+// the global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myFilter = function(callback){
+  var newArray = [];
+  // Add your code below this line
+  
+  for (let i = 0; i< this.length; i++) {
+    if(callback(this[i])=== true ){
+      newArray.push(this[i]);
+    }
+  }
+
+  // Add your code above this line
+  return newArray;
+
+};
+
+var new_s = s.myFilter(function(item){
+  return item % 2 === 1;
+});
+```
+
+### 11. Return Part of an Array Using the slice Method
+
+Use the `slice` method in the `sliceArray` function to return part of the `anim` array given the provided `beginSlice` and `endSlice` indices. The function should return an array.
+
+**My Solution:**
+```javascript
 
 ```
