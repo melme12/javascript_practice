@@ -354,5 +354,67 @@ Use the `sort` method in the `alphabeticalOrder` function to sort the elements o
 
 **My Solution:**
 ```javascript
-
+function alphabeticalOrder(arr) {
+  // Add your code below this line
+  return arr.sort();
+  // Add your code above this line
+}
+alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
 ```
+
+### 17. Return a Sorted Array Without Changing the Original Array
+
+Use the `sort` method in the `nonMutatingSort` function to sort the elements of an array in ascending order. The function should return a new array, and not mutate the `globalArray` variable.
+
+**My Solution:**
+```javascript
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // Add your code below this line
+  let newArr = [];
+  return newArr.concat(globalArray).sort((a, b) => a - b);
+  // Add your code above this line
+}
+nonMutatingSort(globalArray);
+```
+
+### 18. Split a String into an Array Using the split Method
+
+Use the `split` method inside the `splitify` function to split `str` into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
+
+
+**My Solution:**
+```javascript
+function splitify(str) {
+  // Add your code below this line
+  return str.split(/\W/);
+  // Add your code above this line
+}
+splitify("Hello World,I-am code");
+```
+
+### 19. Combine an Array into a String Using the join Method
+
+Use the `join` method (among others) inside the `sentensify` function to make a sentence from the words in the string `str`. The function should return a string. For example, "I-like-Star-Wars" would be converted to "I like Star Wars". For this challenge, do not use the `replace` method.
+
+**My Solution:**
+```javascript
+function sentensify(str) {
+  // Add your code below this line
+  return str.split(/\W/).join(" ");
+  // Add your code above this line
+}
+sentensify("May-the-force-be-with-you");
+```
+
+### 20. Apply Functional Programming to Convert Strings to URL Slugs
+
+Fill in the `urlSlug` function so it converts a string `title` and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use `replace`. Here are the requirements:
+
+The input is a string with spaces and title-cased words
+
+The output is a string with the spaces between words replaced by a hyphen (`-`)
+
+The output should be all lower-cased letters
+
+The output should not have any spaces
