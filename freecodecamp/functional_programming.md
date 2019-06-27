@@ -327,7 +327,30 @@ nonMutatingPush(first, second);
 
 ### 15. Use the reduce Method to Analyze Data
 
-The variable `watchList` holds an array of objects with information on several movies. Use `reduce` to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to `filter` data and `map` over it to pull what you need. You may need to create other variables, but save the final average into the variable `averageRating`. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+The variable `watchList` holds an array of objects with information on several movies. Use `reduce` to find the average IMDB rating of the movies **directed by Christopher Nolan**. Recall from prior challenges how to `filter` data and `map` over it to pull what you need. You may need to create other variables, but save the final average into the variable `averageRating`. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+
+**My Solution:**
+```javascript
+watchList = [......]
+// Add your code below this line
+
+//filter List for everything Christopher Nolan
+let filteredList = watchList.filter(x => x.Director === "Christopher Nolan");
+
+//get ratings and turn strings into numbers
+let mappedList = filteredList.map(y => Number(y.imdbRating))
+
+//divide the sum of mappedList items throught the length of filteredlist
+var averageRating = mappedList.reduce((x1, x2) => x1 + x2) / filteredList.length;
+
+// Add your code above this line
+
+console.log(averageRating); 
+```
+
+### 16. Sort an Array Alphabetically using the sort Method
+
+Use the `sort` method in the `alphabeticalOrder` function to sort the elements of `arr` in alphabetical order.
 
 **My Solution:**
 ```javascript
