@@ -10,5 +10,11 @@ The lowest number will not always come first.
 
 **My Solution:**
 ```javascript
-
+IN PROGRESS:
+function sumAll(arr) {
+  let sortedNum = arr.sort((a, b) => a - b);
+  let start = sortedNum[0];
+  let end = sortedNum[1];
+  let newVar;
+  }
 ```
