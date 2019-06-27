@@ -183,12 +183,10 @@ The `watchList` array holds objects with information on several movies. Use `map
 var watchList = [.....]
 
 // Add your code below this line
-
 let rating = watchList.map( (watchListObj) => ({
   "title":watchListObj["Title"],
   "rating":watchListObj["imdbRating"]
   }) );
-  
 // Add your code above this line
 
 console.log(rating); 
@@ -206,9 +204,7 @@ var s = [23, 65, 98, 5];
 Array.prototype.myMap = function(callback){
   var newArray = [];
   // Add your code below this line
-
   this.forEach(item => newArray.push(callback(item)));
-
   // Add your code above this line
   return newArray;
 
@@ -228,13 +224,11 @@ The variable `watchList` holds an array of objects with information on several m
 var watchList = [.....]
 
 // Add your code below this line
-
 var filteredList = watchList.map(function(x) {
   return {title: x["Title"], rating: x["imdbRating"]}
 }).filter((x) => x.rating >= 8);
 
 // Add your code above this line
-
 console.log(filteredList); 
 ```
 
@@ -270,6 +264,70 @@ var new_s = s.myFilter(function(item){
 ### 11. Return Part of an Array Using the slice Method
 
 Use the `slice` method in the `sliceArray` function to return part of the `anim` array given the provided `beginSlice` and `endSlice` indices. The function should return an array.
+
+**My Solution:**
+```javascript
+function sliceArray(anim, beginSlice, endSlice) {
+  // Add your code below this line
+  return anim.slice(beginSlice, endSlice);
+  // Add your code above this line
+}
+var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+sliceArray(inputAnim, 1, 3);
+```
+
+### 12. Remove Elements from an Array Using slice Instead of splice
+
+Rewrite the function `nonMutatingSplice` by using `slice` instead of `splice`. It should limit the provided `cities` array to a length of 3, and return a new array with only the first three items.
+
+Do not mutate the original array provided to the function.
+
+**My Solution:**
+```javascript
+function nonMutatingSplice(cities) {
+  // Add your code below this line
+  return cities.slice(0, 3);
+  // Add your code above this line
+}
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+nonMutatingSplice(inputCities);
+```
+
+### 13. Combine Two Arrays Using the concat Method
+
+Use the `concat` method in the `nonMutatingConcat` function to concatenate `attach` to the end of `original`. The function should return the concatenated array.
+
+**My Solution:**
+```javascript
+function nonMutatingConcat(original, attach) {
+  // Add your code below this line
+  return original.concat(attach);
+  // Add your code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingConcat(first, second);
+```
+
+### 14. Add Elements to the End of an Array Using concat Instead of push
+
+Change the `nonMutatingPush` function so it uses `concat` to add `newItem` to the end of `original` instead of `push`. The function should return an array.
+
+**My Solution:**
+```javascript
+function nonMutatingPush(original, newItem) {
+  // Add your code below this line
+  return original.concat(newItem);
+  // Add your code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingPush(first, second);
+```
+
+### 15. Use the reduce Method to Analyze Data
+
+The variable `watchList` holds an array of objects with information on several movies. Use `reduce` to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to `filter` data and `map` over it to pull what you need. You may need to create other variables, but save the final average into the variable `averageRating`. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
 
 **My Solution:**
 ```javascript
