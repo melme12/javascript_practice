@@ -418,3 +418,68 @@ The output is a string with the spaces between words replaced by a hyphen (`-`)
 The output should be all lower-cased letters
 
 The output should not have any spaces
+
+**My Solution:**
+```javascript
+// the global variable
+var globalTitle = "Winter Is Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  return title.toLowerCase().trim().split(/\s+/).join("-");
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+```
+
+### 21. Use the every Method to Check that Every Element in an Array Meets a Criteria
+
+Use the `every` method inside the `checkPositive` function to check if every element in `arr` is positive. The function should return a Boolean value.
+
+
+**My Solution:**
+```javascript
+function checkPositive(arr) {
+  // Add your code below this line
+  return arr.every(function(currentValue) {
+    return currentValue > 0;
+  });
+  // Add your code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+```
+
+### 22. Use the some Method to Check that Any Elements in an Array Meet a Criteria
+
+Use the `some` method inside the `checkPositive` function to check if any element in `arr` is positive. The function should return a Boolean value.
+
+**My Solution:**
+```javascript
+function checkPositive(arr) {
+  // Add your code below this line
+  return arr.some(function(item) {
+    return item > 0;
+  });
+  // Add your code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+```
+
+### 23. Introduction to Currying and Partial Application
+
+Fill in the body of the `add` function so it uses currying to add parameters `x`, `y`, and `z`.
+
+**My Solution:**
+```javascript
+function add(x) {
+  // Add your code below this line
+  return function(y) {
+    return function(z) {
+      return x + y + z;
+    }
+  }
+  // Add your code above this line
+}
+add(10)(20)(30);
+```
