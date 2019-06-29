@@ -73,5 +73,60 @@ For example, if the first argument is `[{ first: "Romeo", last: "Montague" }, { 
 
 **My Solution:**
 ```javascript
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+ 
+  var objKeys = Object.keys(source);
+
+  return collection.filter(function (obj) {
+    return objKeys.every(function (item) {
+      return obj.hasOwnProperty(item) && obj[item] === source[item];
+    });
+  });
+  
+  // Only change code above this line
+  return item;
+}
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+```
+
+### 5. Spinal Tap Case
+
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+**My Solution:**
+```javascript
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+
+  let regex = /\s+|_+/g;
+
+  // Replace low-upper case to low-space-uppercase: puts a space before any encountered uppercase characters in the string str so that the spaces can be replaced by dashes later on
+  str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  // Replace space and underscore with "-"
+  return str.replace(regex, '-').toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');
+```
+**Notes:** This one was hard. I tried several approaches, but failed with the test Cases where the string had no characters between the words. Had to look at the solution in the end.
+
+### 6. Pig Latin
+
+Translate the provided string to pig latin.
+
+Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+
+If a word begins with a vowel you just add "way" to the end.
+
+Input strings are guaranteed to be English words in all lowercase.
+
+**My Solution:**
+```javascript
 
 ```
