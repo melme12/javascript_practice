@@ -160,5 +160,37 @@ Preserve the case of the first character in the original word when you are repla
 
 **My Solution:**
 ```javascript
+function myReplace(str, before, after) {
+
+  if (/[A-Z]/.test( before[0]) === true) {
+    let toUpCase = after.charAt(0).toUpperCase() + after.slice(1);
+    return str.split(before).join(toUpCase);
+
+  } else if (/[A-Z]/.test( before[0]) === false) {
+    let toLoCase = after.charAt(0).toLowerCase() + after.slice(1);
+    return str.split(before).join(toLoCase);
+
+  } else {
+    return str.split(before).join(after);
+  }
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+```
+
+### 8. DNA Pairing
+
+The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+Return the provided character as the first element in each array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+
+**My Solution:**
+```javascript
 
 ```
