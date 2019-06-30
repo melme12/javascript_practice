@@ -340,5 +340,46 @@ For example, if given 1 and 3, find the smallest common multiple of both 1 and 3
 
 **My Solution:**
 ```javascript
+function smallestCommons(arr) {
+
+  arr = arr.sort((a, b) => a - b);
+
+  let min = arr[0];
+  let max = arr[1];
+  
+  var newArr = [];
+  for (var i = min; i <= max; i++) {
+      newArr.push(i);
+  }
+  
+  var x = 0;
+  var loop = 1;
+  var n;
+
+  do {
+    x = newArr[0] * loop * newArr[1];
+    for (n = 2; n < newArr.length; n++) {
+      if (x % newArr[n] !== 0) {
+        break;
+      }
+    }
+    loop++;
+  } while (n !== newArr.length);
+
+  return x;
+}
+
+smallestCommons([1,5]);
+```
+**Notes:** The code works locally, but won't pass FFC's test with `[1, 13]`. Others have encountered similar problems, so it seems to be a bug in their test.
+
+### 15. Drop it
+
+Given the array `arr`, iterate through and remove each element starting from the first element (the 0 index) until the function `func` returns `true` when the iterated element is passed through it.
+
+Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+**My Solution:**
+```javascript
 
 ```
