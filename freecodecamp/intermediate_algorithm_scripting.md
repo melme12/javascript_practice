@@ -192,5 +192,34 @@ The character and its pair are paired up in an array, and all the arrays are gro
 
 **My Solution:**
 ```javascript
+function pairElement(str) {
+  
+  let arr = str.split("");
+  var newArr = [];
+
+  for (var i = 0 ; i<arr.length; i++){
+    if (arr[i]=="A") {
+      newArr.push(["A", "T"]);
+    } else if (arr[i]=="T") {
+      newArr.push(["T", "A"]);
+    } else if (arr[i]=="C") {
+      newArr.push(["C", "G"]);
+    } else if (arr[i]=="G") {
+      newArr.push(["G", "C"]);
+    }
+  }
+  return newArr;
+}
+pairElement("GCG");
+```
+
+### 9. Missing letters
+
+Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.
+
+**My Solution:**
+```javascript
 
 ```
