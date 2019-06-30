@@ -420,5 +420,30 @@ The binary string will be space separated.
 
 **My Solution:**
 ```javascript
+function binaryAgent(str) {
+
+  let arr = str.split(" ");
+
+  return arr.map(function(x) {
+    return String.fromCharCode(parseInt(x, 2));
+  }).join("");
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+```
+**Notes:** Really hard one. Had to look on the 1st hint. First, turn the string into an array, so we can iterate through it with `map()`. `String.fromCharCode()` returns a string created from the specified sequence of UTF-16 code units, `parseInt(x, 2)` turns binary into decimal. In the end, join without space, which is already in the binary code.
+
+### 17. Everything Be True
+
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+
+In other words, you are given an array collection of objects. The predicate `pre` will be an object property and you need to return `true` if its value is `truthy`. Otherwise, return `false`.
+
+In JavaScript, `truthy` values are values that translate to `true` when evaluated in a Boolean context.
+
+Remember, you can access object properties through either dot notation or `[]` notation.
+
+**My Solution:**
+```javascript
 
 ```
