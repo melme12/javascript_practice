@@ -381,5 +381,44 @@ Then return the rest of the array once the condition is satisfied, otherwise, ar
 
 **My Solution:**
 ```javascript
+function dropElements(arr, func) {
+  const length = arr.length;
+  for (let i = 0; i < length; i++) {
+    
+    if (func(arr[0]) === true) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+```
+
+### 15. Steamroller
+
+Flatten a nested array. You must account for varying levels of nesting.
+
+**My Solution**
+```javascript
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+
+  return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(steamrollArray(val)) : acc.concat(val), []);
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+```
+
+### 16. Binary Agents
+
+Return an English translated sentence of the passed binary string.
+
+The binary string will be space separated.
+
+**My Solution:**
+```javascript
 
 ```
