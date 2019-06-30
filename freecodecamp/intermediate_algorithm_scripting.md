@@ -286,5 +286,32 @@ For example, `sumFibs(10)` should return `10` because all odd Fibonacci numbers 
 
 **My Solution:**
 ```javascript
+function sumFibs(num) {
+  let fibArr = [1, 1];
+  let i = 2;
+
+  while (fibArr[i-1] + fibArr[i-2] <= num) {
+      fibArr.push(fibArr[i-1] + fibArr[i-2]);
+      i++;
+  }
+
+  let oddArr = fibArr.filter(x => x % 2 !== 0);
+
+  return oddArr.reduce((a, b) => a + b, 0);
+}
+
+sumFibs(4);
+```
+
+### 13. Sum All Primes
+
+Sum all the prime numbers up to and including the provided number.
+
+A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+
+The provided number may not be a prime.
+
+**My Solution:**
+```javascript
 
 ```
