@@ -244,5 +244,20 @@ Check the assertion tests for examples.
 
 **My Solution:**
 ```javascript
+function uniteUnique(...arr) {
+  let newArr = [].concat(...arr); 
+  return [...new Set(newArr)];
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+```
+**Notes:** I looked up how to get rid of duplicates. I found `set`: "Set object lets you store unique values of any type. In other words, Set will automatically remove duplicates for us." Then I first tried to concat the original array with the rest parameters and tried to `flat()` it, which of course didn't work. All I had to do was to use an empty array with `concat(...arr)`, `flat()` wasn't necessary at all.
+
+### 11. Convert HTML Entities
+
+Convert the characters `&`, `<`, `>`, `"` (double quote), and `'` (apostrophe), in a string to their corresponding HTML entities.
+
+**My Solution:**
+```javascript
 
 ```
