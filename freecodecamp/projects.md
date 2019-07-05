@@ -17,5 +17,28 @@ We'll also pass strings with special symbols, such as `"2A3*3a2"`, `"2A3 3a2"`, 
 
 **My Solution:**
 ```javascript
+function palindrome(str) {
+  let updatedStr = str.toLowerCase().replace(/[^A-Za-z0-9]/g, '');
+  let reverseString = updatedStr.split("").reverse().join("");
+  
+  if (updatedStr === reverseString) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+palindrome("eye");
+```
+
+### 2. Roman Numeral Converter
+
+Convert the given number into a roman numeral.
+
+All roman numerals answers should be provided in upper-case.
+
+**My Solution:**
+```javascript
 
 ```
+
