@@ -584,5 +584,26 @@ The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 39
 
 **My Solution:**
 ```javascript
+function orbitalPeriod(arr) {
+  let GM = 398600.4418;
+  let earthRadius = 6367.4447;
+  let newArr = [];
 
+  let getOrbPeriod = function(obj) {
+    let part = Math.pow(earthRadius + obj.avgAlt, 3);
+    let orbPeriod = Math.round((2 * Math.PI) * (Math.sqrt(part / GM)));
+    delete obj.avgAlt;
+    obj.orbitalPeriod = orbPeriod;
+    return obj;
+  };
+
+  for (let elem in arr) {
+    newArr.push(getOrbPeriod(arr[elem]));
+  }
+
+  return newArr;
+}
+
+// test here
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
 ```
