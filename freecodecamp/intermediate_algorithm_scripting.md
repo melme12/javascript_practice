@@ -527,5 +527,62 @@ These methods must be the only available means of interacting with the object.
 
 **My Solution:**
 ```javascript
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+
+  let firstName;
+  let lastName;
+
+  function splitName(str) {
+    firstName = str.split(" ")[0];
+    lastName = str.split(" ")[1];
+  }
+
+  splitName(firstAndLast);
+
+  this.getFirstName = function(){
+    return firstName;
+  };
+
+  this.getLastName = function(){
+    return lastName;
+  };
+
+  this.getFullName = function(){
+    return firstName + " " + lastName;
+  };
+
+  this.setFirstName = function(str){
+    firstName = str;
+  };
+ 
+  this.setLastName = function(str) {
+    lastName = str;
+  }
+
+  this.setFullName = function(str) {
+    splitName(str);
+  }
+
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+```
+
+### 20. Map the Debris
+
+Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+
+The array will contain objects in the format `{name: 'name', avgAlt: avgAlt}`.
+
+You can read about orbital periods on Wikipedia.
+
+The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+**My Solution:**
+```javascript
 
 ```
