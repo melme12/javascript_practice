@@ -475,5 +475,57 @@ If either argument isn't a valid number, return undefined.
 
 **My Solution:**
 ```javascript
+function addTogether() {
+
+  const checkIfNum = function(num) {
+    if (typeof num !== 'number') {
+      return undefined;
+    } else {
+      return num;
+    }
+  }
+  
+  let num1 = checkIfNum(arguments[0]);
+  let num2 = checkIfNum(arguments[1]);
+  
+  if (arguments.length >= 2) {
+    if (num1 === undefined || num2 === undefined) {
+      return undefined;
+    } else {
+      return num1 + num2;
+    }
+  } else {
+    if (num1 === undefined) {
+      return undefined;
+    } else {
+      return function(otherNum) {
+        if (checkIfNum(otherNum) === undefined) {
+          return undefined;
+        } else {
+          return num1 + otherNum;
+        }
+      }
+    }
+  }
+
+}
+
+addTogether(2, 3);
+```
+
+### 19. Make a Person
+
+Fill in the object constructor with the following methods below:
+
+`getFirstName() getLastName() getFullName() setFirstName(first) setLastName(last) setFullName(firstAndLast)`
+
+Run the tests to see the expected output for each method.
+
+The methods that take an argument must accept only one argument and it has to be a string.
+
+These methods must be the only available means of interacting with the object.
+
+**My Solution:**
+```javascript
 
 ```
