@@ -39,6 +39,33 @@ All roman numerals answers should be provided in upper-case.
 
 **My Solution:**
 ```javascript
+function convertToRoman(num) {
+  var romanNums = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
 
+  if (num === 0) {
+    return '';
+  }
+  for (var i = 0; i < romanNums.length; i++) {
+    if (num >= romanNums[i][0]) {
+      return romanNums[i][1] + convertToRoman(num - romanNums[i][0]);
+    }
+  }
+}
+
+convertToRoman(36);
 ```
 
+### 2. Caesars Cipher
+
+One of the simplest and most widely known ciphers is a `Caesar cipher`, also known as a `shift cipher`. In a `shift cipher` the meanings of the letters are shifted by some set amount.
+
+A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+
+Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+
+All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+
+**My Solution:**
+```javascript
+
+```
