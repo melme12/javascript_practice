@@ -55,7 +55,7 @@ function convertToRoman(num) {
 convertToRoman(36);
 ```
 
-### 2. Caesars Cipher
+### 3. Caesars Cipher
 
 One of the simplest and most widely known ciphers is a `Caesar cipher`, also known as a `shift cipher`. In a `shift cipher` the meanings of the letters are shifted by some set amount.
 
@@ -84,7 +84,7 @@ rot13("SERR PBQR PNZC");
 ```
 **Notes:** I tried to accomplish the ROT13 with regex first and pushing it to an array with an if statement. I would like to try this approach again.
 
-### 3. Telephone Number Validator
+### 4. Telephone Number Validator
 
 Return `true` if the passed string looks like a valid US phone number.
 
