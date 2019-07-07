@@ -103,5 +103,32 @@ For this challenge you will be presented with a string such as `800-692-7753` or
 
 **My Solution:**
 ```javascript
+function telephoneCheck(str) {
+
+  let regex = /^(1\s*)*(\d{3}(\s|\-)*|\(\d{3}\)(\s)*)\d{3}(\s|\-)*\d{4}$/;
+
+  return regex.test(str);
+}
+
+telephoneCheck("555-555-5555");
+```
+**Notes:** I found (Regex Pal)[https://www.regexpal.com] when looking for regex and it's magic!
+
+### 5. Cash Register
+
+Design a cash register drawer function `checkCashRegister()` that accepts purchase price as the first argument (`price`), payment as the second argument (`cash`), and cash-in-drawer (`cid`) as the third argument.
+
+`cid` is a 2D array listing available currency.
+
+The `checkCashRegister()` function should always return an object with a `status` key and a `change` key.
+
+Return `{status: "INSUFFICIENT_FUNDS", change: []}` if cash-in-drawer is less than the change due, or if you cannot return the exact change.
+
+Return `{status: "CLOSED", change: [...]}` with cash-in-drawer as the value for the key change if it is equal to the `change` due.
+
+Otherwise, return `{status: "OPEN", change: [...]}`, with the change due in coins and bills, sorted in highest to lowest order, as the value of the `change` key.
+
+**My Solution:**
+```javascript
 
 ```
