@@ -112,7 +112,7 @@ function telephoneCheck(str) {
 
 telephoneCheck("555-555-5555");
 ```
-**Notes:** I found (Regex Pal)[https://www.regexpal.com] when looking for regex and it's magic!
+**Notes:** I found [Regex Pal](https://www.regexpal.com) when looking for regex and it's magic!
 
 ### 5. Cash Register
 
