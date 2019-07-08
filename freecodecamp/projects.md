@@ -67,22 +67,22 @@ All letters will be uppercase. Do not transform any non-alphabetic character (i.
 
 **My Solution:**
 ```javascript
-function rot13(str) {
-  
-  const inputLetter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const outputLetter = 'NOPQRSTUVWXYZABCDEFGHIJKLM';
+function rot13(str) { // LBH QVQ VG!
+  const inputLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const outputLetters = 'NOPQRSTUVWXYZABCDEFGHIJKLM';
 
-  const LetterIndex = ( x => inputLetter.indexOf(x) );
+  const LetterIndex = ( x => inputLetters.indexOf(x) );
 
-  const translate = ( x => LetterIndex(x) > -1 ? outputLetter[LetterIndex(x)] : x );
+  const newLetter = ( y => (LetterIndex(y) > -1) ? outputLetters[LetterIndex(y)] : y );
 
-  return str.split('').map(translate).join('');
-
+  return str.split('').map(newLetter).join('');
 }
 
+// Change the inputs below to test
 rot13("SERR PBQR PNZC");
 ```
 **Notes:** I tried to accomplish the ROT13 with regex first and pushing it to an array with an if statement. I would like to try this approach again.
+In the meanwhile, I completed the const newLetter with the help of lern.io's post [here](https://www.freecodecamp.org/forum/t/javascript-algorithms-and-data-structures-projects-caesars-cipher-help/216490/4?u=mel_me)
 
 ### 4. Telephone Number Validator
 
