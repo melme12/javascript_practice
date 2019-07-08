@@ -270,6 +270,6 @@ function checkCashRegister(price, cash, cid) {
 
 checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 ```
-**Notes:** This challenge took me two days, it was HARD. I had to turn to Dylan Israel's Video to really understand how tackle this problem. In the end I managed to keep most of the code I wrote.
+**Notes:** This challenge took me two days, it was HARD. I read all I could find about it, until I found a way that worked for me.
 
 And in the end: [https://twitter.com/Peter_shirley/status/1147273341461356544?s=20](https://twitter.com/Peter_shirley/status/1147273341461356544?s=20)
