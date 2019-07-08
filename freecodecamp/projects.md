@@ -219,10 +219,11 @@ function checkCashRegister(price, cash, cid) {
     cashRegister.change = [];
     return cashRegister;
   }
+  
+  //CREDITS
+  //A thousand thanks to Dylan Israel on Youtube for helping out here, I was completely lost at this point.
 
   //get Change
-  cashRegister.change = getCustomersChange(changeNeeded, cid);
-
   function getCustomersChange(changeNeeded, changeInDrawer) {
     let change = [];
 
@@ -234,8 +235,7 @@ function checkCashRegister(price, cash, cid) {
       let coinsToReturn = 0;
 
       while (changeNeeded >= coinValue && coinAmount > 0) {
-        changeNeeded -= coinValue;
-        changeNeeded = changeNeeded.toFixed(2);
+        changeNeeded = (changeNeeded - coinValue).toFixed(2);
         coinAmount--;
         coinsToReturn++;
       }
@@ -247,11 +247,13 @@ function checkCashRegister(price, cash, cid) {
     return change;  
   }
 
+  cashRegister.change = getCustomersChange(changeNeeded, cid);
+
   // Total amount in the register
-  function getTotalCashRegisterChange(changeInDrawer) {
+  function getTotalCashRegisterChange(x) {
     let total = 0;
-    for (let x of changeInDrawer) {
-      total += x[1];
+    for (let i of x) {
+      total += i[1];
     }
     return total.toFixed(2);
   };
