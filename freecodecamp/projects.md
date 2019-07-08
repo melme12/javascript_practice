@@ -130,5 +130,146 @@ Otherwise, return `{status: "OPEN", change: [...]}`, with the change due in coin
 
 **My Solution:**
 ```javascript
+function checkCashRegister(price, cash, cid) {
+  
+  // what and how much is in the drawer?
+  const drawer = [
+    {
+      name: 'HUNDRED',
+      value: 100,
+      total: cid[8][1],
+      amount: (cid[8][1] / 100).toFixed(2)
+    },
+    {
+      name: 'TWENTY',
+      value: 20,
+      total: cid[7][1],
+      amount: (cid[7][1] / 20).toFixed(2)
+    },
+    {
+      name: 'TEN',
+      value: 10,
+      total: cid[6][1],
+      amount: (cid[6][1] / 10).toFixed(2)
+    },
+    {
+      name: 'FIVE',
+      value: 5,
+      total: cid[5][1],
+      amount: (cid[5][1] / 5).toFixed(2)
+    },
+    {
+      name: 'ONE',
+      value: 1,
+      total: cid[4][1],
+      amount: (cid[4][1]).toFixed(2)
+    },    
+    {
+      name: 'QUARTER',
+      value: 0.25,
+      total: cid[3][1],
+      amount: (cid[3][1] / 0.25).toFixed(2)
+    },
+    {
+      name: 'DIME',
+      value: 0.1,
+      total: cid[2][1],
+      amount: (cid[2][1] / 0.1).toFixed(2)
+    },
+    {
+      name: 'NICKEL',
+      value: 0.10,
+      total: cid[1][1],
+      amount: (cid[1][1] / 0.05).toFixed(2) //.toFixed()?
+    },
+    {
+      name: 'PENNY',
+      value: 0.01,
+      total: cid[0][1],
+      amount: (cid[0][1] / 0.01).toFixed(2)
+    }
+  ];
 
+  // Total amount in the register
+  const registerTotal = drawer.reduce(function (total, currentValue) { return total + currentValue.total; }, 0).toFixed(2);
+
+  // Amount of change needed
+  const changeNeeded = parseFloat(cash - price).toFixed(2);
+
+  // Empty Register Status Form
+  let cashRegister = { status: '', change: 'hello' };
+  
+  // Register Status
+  const registerStatus = { closed: 'CLOSED', insufficientFunds: 'INSUFFICIENT_FUNDS', open: 'OPEN' };
+
+  //this sets the status
+  cashRegister.status = setRegisterStatus(changeNeeded, registerTotal);
+  function setRegisterStatus(changeNeeded, registerTotal) {
+    if (Number(changeNeeded) > Number(registerTotal)) {
+      return registerStatus.insufficientFunds;
+    }
+    if (Number(changeNeeded) < Number(registerTotal)) {
+      return registerStatus.open;
+    } 
+    return registerStatus.closed;
+  }
+ 
+  //this sets an empty array for insufficient funds and returns it
+  if (cashRegister.status === registerStatus.insufficientFunds) {
+    cashRegister.change = [];
+    return cashRegister;
+  }
+
+  //get Change
+  cashRegister.change = getCustomersChange(changeNeeded, cid);
+
+  function getCustomersChange(changeNeeded, changeInDrawer) {
+    let change = [];
+
+    for (let i = 0; i < changeInDrawer.length; i++) {
+      const coinName = drawer[i].name;
+      const coinValue = drawer[i].value;
+      let coinAmount = drawer[i].amount;
+
+      let coinsToReturn = 0;
+
+      while (changeNeeded >= coinValue && coinAmount > 0) {
+        changeNeeded -= coinValue;
+        changeNeeded = changeNeeded.toFixed(2);
+        coinAmount--;
+        coinsToReturn++;
+      }
+
+      if (coinsToReturn > 0) {
+        change.push([coinName, (coinsToReturn * coinValue)]);
+      }
+    }
+    return change;  
+  }
+
+  // Total amount in the register
+  function getTotalCashRegisterChange(changeInDrawer) {
+    let total = 0;
+    for (let x of changeInDrawer) {
+      total += x[1];
+    }
+    return total.toFixed(2);
+  };
+
+  if (changeNeeded > getTotalCashRegisterChange(cashRegister.change)) {
+    cashRegister.status = registerStatus.insufficientFunds;
+    cashRegister.change = [];
+  }
+
+  if (cashRegister.status === registerStatus.closed) {
+    cashRegister.change = [...cid];
+  }
+
+  return cashRegister;
+}
+
+checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 ```
+**Notes:** This challenge took me two days, it was HARD. I had to turn to Dylan Israel's Video to really understand how tackle this problem. In the end I managed to keep most of the code I wrote.
+
+And in the end: [https://twitter.com/Peter_shirley/status/1147273341461356544?s=20](https://twitter.com/Peter_shirley/status/1147273341461356544?s=20)
